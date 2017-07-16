@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link rel="stylesheet" href="__PUBLIC__/css/list.css">
+		<link rel="stylesheet" href="__PUBLIC__/iconfont/iconfont.css">
+		<title>修改密码</title>
+		<style type="text/css">
+			.wrapper{
+				background: none;
+				background-color: #fff;
+				padding: 20px; 50px;
+				box-sizing:border-box;
+				-webkit-box-sizing:border-box;
+			}
+			input::-webkit-input-placeholder{color: #CCCCCC;}
+			input:focus::-webkit-input-placeholder{
+            text-indent: -999em;
+            z-index: -20;
+            }
+            .wrapper .row{width: 80%; height: 45px; line-height: 45px; margin: 10px auto; border: 1px solid #CCCCCC;padding-bottom: 2px; margin-top: 0px;}
+            .wrapper .regist_msg{width: 80%; height: 20px; line-height: 20px; margin: 10px auto; border: 1px solid #CCCCCC; margin-top: 0px; text-align: center; color: red; border: none;}
+            .wrapper .row label{width: 70px; height: 40px; line-height: 40px; font-size: 16px; font-family: "微软雅黑"; margin:0px 20px; text-align: right;}
+            .wrapper .row input{width: 50%; border: none; height: 40px; line-height: 40px; outline: none; margin-top: 2px;}
+            .wrapper .row .yzm{width: 30%; border: none; height: 40px; line-height: 40px; outline: none; margin-top: 2px;}
+            .wrapper .no-border{border: none; position: relative; margin-top: 30px;}
+            .wrapper .row .submit{width: 200px; height: 40px; background-color:#00aae0 ; color: white; font-size: 18px; text-align: center; position: absolute; left: 50%; margin-left: -100px;}
+            .wrapper .row button{width: 30%; height: 40px; border-radius: 5px; border: none; background-color: #f2f2f2; float: right; margin-top: 3px; outline: none; cursor: pointer;}
+		</style>
+    </head>
+    <body>
+    	<div class="wrapper">
+			<form class="forget-pass" method="post" novalidate="novalidate" >
+			<div class="row top">
+				<label for="phone">用  户  名 :</label><input type="text" name="phone" placeholder="请输入你的手机号" />
+			</div>
+			<div class="row">
+				<label for="new-psd">新  密   码 :</label><input type="password" name="new-psd" id="new-psd" placeholder="新密码不少于六位！" />
+			</div>
+			<div class="row">
+				<label for="re-psd">确认密码 :</label><input type="password" name="re-psd" id="re_psd" placeholder="请再次输入密码！" />
+			</div>
+			<div class="row">
+				<label for="yzm">手机验证 :</label><input type="text" name="yzm" class="yzm" placeholder="请输入验证码" /><button>获取验证码</button>
+			</div>
+			<div class="regist_msg"></div>
+			<div class="row no-border">
+				<button type="submit" class="submit">确  认</button>
+			</div>
+          </form>
+    	</div>
+    </body>
+	<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+
+	$("form").submit(function(e){
+		console.log(1)
+	    var new_pwd=$("#new-psd").val(),
+	    	re_pwd=$("#re_psd").val();
+	    var par={};
+	    par.new_pwd=$("#new-psd").val();
+	    par.re_pwd=$("#re_psd").val();
+		if(new_pwd.length >= 6){
+			if(new_pwd==re_pwd){
+				$.post("/login/set_pwd",par,function(data){
+			        if(data.code=="0"){
+			            window.location.href='/login/index';
+			        }else{
+			            $('.regist_msg').html(data.msg)
+			            $('form input').keydown(function(){
+							 $('.regist_msg').html('')
+							 $('form input').off('keydown');
+						})
+			            
+			            return false;
+			        }
+			    });
+			}else{
+				$('.regist_msg').html('两次密码输入不一致');
+		    	return false;
+			}
+		    return false;
+		}else{
+			$('.regist_msg').html('请输入不少于6位数的密码');
+		    return false;
+
+		}
+	    
+	});
+
+	</script>
+</html>

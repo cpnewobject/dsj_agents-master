@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加客户</title>
+		<style>
+			*{margin: 0 ;padding: 0 ;}
+			.main{width: 500px; margin: 0 auto; margin-top: 50px; font-size: 16px;}
+			.main .row{margin-top: 15px; display: flex;}
+			.main label{ margin-left: 20px; flex:0 0 20% ; text-align: right;box-sizing: border-box; padding-right: 10px; line-height: 35px; margin-right: 0;}
+			.main input{flex:  0 0 40%; border-radius: 4px; border: 1px solid #CCCCCC; box-sizing: border-box; height: 35px; line-height: 35px;}
+			.main .large{flex: 0 0 80%;}
+			.main .large .address{width: 300px;}
+			.main select{ margin: 0; padding: 0; margin-right: 20px; width: 100px;}
+			.main span{width: 200px; flex:  0 0 40%;}
+			.main button{width: 100px; height: 40px; font-size: 18px; color: white; background-color: #3385ff; outline: none; border: none; margin-left: 40%; margin-top: 80px; border-radius: 10px;}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<form>
+				<div class="row">
+					<label for="number">代理商编号:</label>
+					<input type="text" class="number" />
+					<span></span>
+				</div>
+				<div class="row">
+					<label for="number">客户姓名:</label>
+					<input type="text" class="number" />
+					<span></span>
+				</div>
+				<div class="row">
+					<label for="number">收货人:</label>
+					<input type="text" class="number" />
+					<span></span>
+				</div>
+				<div class="row">
+					<label for="number">收货地址:</label>
+					<select name="sf" onchange="get_city(this);">
+						<option  selected="selected">省份</option>
+						<option>上海</option>
+						<option>甘肃</option>
+			                <volist name='areas' id="vo">
+			                	<option value="{$vo['id']}" <if condition="$vo['id'] eq $search_where['province_id']">selected</if>>{$vo['area']}</option>
+			                </volist>
+					</select>
+					<select name="city" id="city_id" onchange="get_district(this)">
+						<option selected="selected">城市</option>
+						<option>上海</option>
+						<option>北京</option>
+							<volist name="city" id="vo">
+							<option value="{$vo['id']}" <if condition="$vo['id'] eq $search_where['city_id']">selected = "selected" </if>>{$vo['area']}</option>
+							</volist>
+					</select>
+					<select name="area" id="district_id">
+						<option selected="selected">区域</option>
+							<volist name="district" id="vo">
+							<option value="{$vo['id']}" <if condition="$vo['id'] eq $search_where['district_id']">selected = "selected" </if>>{$vo['area']}</option>
+							</volist>
+					</select>
+				</div>
+				<div class="row">
+					<label for="number">详细地址:</label>
+					<input type="text" class="address large" />
+				</div>
+				<button type="submit">提交</button>
+			</form>
+		</div>
+		
+	</body>
+    <script type="text/javascript" src="__PUBLIC__/js/lib/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    function submit(){
+        document.getElementById('searchForm').submit();
+    }
+    function get_city(obj)
+    {
+      if(obj.value)
+      {
+        $("#city_id").empty();
+        $.ajax({
+                url : '{:U("Guestlist/getcityList")}',
+                dataType : 'json',
+                data : {parent_id : obj.value},
+                success : function(data){
+                  if(data.code=='0'){ //删除成功
+                    $("#city_id").append(data.city);
+                    $("#district_id").empty();
+                    $("#district_id").append("<option value=''>请选择区</option>");
+                  }
+                }
+            });
+      }
+    }
+
+    function get_district(obj)
+    {
+      if(obj.value)
+      {
+        $("#district_id").empty();
+        $.ajax({
+                url : '{:U("Guestlist/getdistrictList")}',
+                dataType : 'json',
+                data : {parent_id : obj.value},
+                success : function(data){
+                  if(data.code=='0'){ //删除成功
+                    $("#district_id").append(data.district);
+                  }
+                }
+            });
+      }
+    }
+</script>
+</html>

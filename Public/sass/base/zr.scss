@@ -1,0 +1,374 @@
+@charset "UTF-8";
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.content {
+  min-height: 560px;
+  background: #fff;
+}
+
+.z-tool-wrap {
+  position: relative;
+  background: #767e88;
+  top: 0;
+  left: 0;
+  height: 48px;
+  padding-right: 10px;
+  .z-select{
+    position: relative;
+    min-width: 140px;
+    height: auto;
+    line-height: 34px;
+    top: 8px;
+    left: 0;
+    cursor: pointer;
+    padding: 0 20px;
+    border-right: 1px solid #fff;
+    .select-sub {
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background: #767e88;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      box-sizing: border-box;
+      z-index: 999;
+      li {
+        border-top: 1px solid #555;
+        line-height: 46px;
+        text-indent: 20px;
+      }
+    }
+    &:hover .select-sub {
+      height: auto;
+      li:hover {
+        background-color: #666;
+        transition: background-color .2s;
+      }
+    }
+    &:hover {
+      &>i {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transition: all .2s;
+        transition: all .2s;
+      }
+    }
+    i {
+      float: right;
+      transform: rotate(0deg);
+    }
+  }
+  .j-select,.d-select {
+    position: relative;
+    min-width: 100px;
+    height: auto;
+    line-height: 34px;
+    top: 8px;
+    left: 0;
+    cursor: pointer;
+    padding: 0 20px;
+    .select-sub {
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background: #333;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      box-sizing: border-box;
+      z-index: 999;
+      li {
+        border-top: 1px solid #555;
+        line-height: 46px;
+        text-indent: 20px;
+      }
+    }
+    &:hover .select-sub {
+      height: auto;
+      li:hover {
+        background-color: #666;
+        transition: background-color .2s;
+      }
+    }
+    &:hover>i {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transition: all .2s;
+        transition: all .2s;
+    }
+    i {
+      float: right;
+      transform: rotate(0deg);
+    }
+  }
+  .select-sub{
+    text-align: left;
+  }
+  .z-tool-l {
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    color: #fff;
+    .z-search {
+      margin-left: 10px;
+      height: 40px;
+      position: relative;
+      i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 19px;
+      }
+      input {
+        background: #767e88;
+        border: none;
+        line-height: 35px;
+        text-indent: 30px;
+        width: 200px;
+        border-bottom: 1px solid #fff;
+        color: #fff;
+      }
+    }
+  }
+  .btn-service-create {
+
+  }
+  .btn-top {
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+  }
+  .btn {
+    margin: 9px 10px;
+  }
+}
+
+//列表表格css
+.z-list-table-wrap {
+  background: #fff;
+}
+
+.z-list-table {
+  width: 100%;
+  tbody {
+    tr:nth-child(2n+1) {
+      background: #f8f8f8;
+    }
+    tr:hover {
+      background: #EBEEF2;
+    }
+  }
+  th, td {
+    min-width: 50px;
+    height: 48px;
+    word-break: break-all;
+  }
+  th {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  td {
+    font-size: 12px;
+    height: 48px;
+  }
+  .w-100 {
+    width: 100px;
+  }
+  .w-200 {
+    width: 200px;
+  }
+  .w-400 {
+    width: 400px;
+  }
+  .pl-100 {
+    padding-left: 100px;
+  }
+  .td-phonenumber, .th-phonenumber {
+    min-width: 80px;
+  }
+  .th-time, .td-time {
+    line-height: 22px;
+  }
+  .th-check, .td-check {
+    line-height: 48px;
+    width: 60px;
+    text-align: center;
+  }
+  .td-action, .th-action {
+    text-align: center;
+  }
+  .td-action {
+    color: $blue;
+    span, a {
+      color: $blue;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+  }
+
+}
+
+.details-info-wrap {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #fff;
+  font-size: $font-size-base;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  p {
+    width: 200px;
+  }
+}
+
+.content-item {
+  margin-bottom: 20px;
+}
+
+.content-hd {
+  color: #333;
+  line-height: 42px;
+  background: #efefef;
+}
+
+.font-orange {
+  color: $orange;
+}
+
+.ui-word {
+  max-width: 1000px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p50 {
+  padding-left: 50px;
+}
+
+.z-title {
+  color: #fff;
+  font-size: $font-size-base;
+  margin-left: 20px;
+  line-height: 48px;
+}
+
+.form-btn {
+  button, span {
+    display: inline-block;
+    width: 140px;
+    line-height: 40px;
+    height: 40px;
+    margin: 0 15px;
+  }
+}
+label.is-error{
+  color: #e8470b;
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+.form-group .group-item{
+  position: relative;
+  float: left;
+  margin-bottom: 20px;
+
+}
+.mr125{
+  margin-right: 125px;
+}
+/* --分页样式-- */
+.page_bt {
+  height: 40px;
+  line-height: 40px;
+  margin: 30px 0 20px; }
+
+.page_bt div {
+  min-width: 100px;
+  float: right;
+  padding-right: 30px; }
+
+.page_bt div a.prev, .page_bt div a.next {
+  display: block;
+  width: 62px;
+  height: 38px;
+  border: 1px solid #eee;
+  color: #00AAE0;
+  float: left; }
+
+.page_bt div a.prev:hover, .page_bt div a.next:hover {
+  background: #eee; }
+
+.page_bt div a.next {
+  border-left: none; }
+
+.page_bt div .num, .page_bt span.current {
+  display: block;
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  border: 1px solid #eee;
+  color: #333;
+  border-left: none;
+  background: #fff;
+  float: left; }
+
+.page_bt div .num:hover {
+  background: #eee; }
+
+.page_bt span.current {
+  background: #00AAE0;
+  color: #fff; }
+
+.page_bt span.rows {
+  margin-left: 10px; }
+
+.page_bt a.first, .page_bt a.end {
+  display: block;
+  width: 60px;
+  height: 38px;
+  margin: 0 5px;
+  border: 1px solid #eee;
+  color: #333;
+  float: left; }
+
+.page_bt a.first:hover, .page_bt a.end:hover {
+  background: #eee; }
+.pl-20{
+padding-left: 20px;
+}
+
+.select-box select {
+  display: inline-block;
+  min-width: 100px;
+  line-height: 30px;
+  color: #666;
+  border-radius: 4px;
+  text-align: center;
+  padding: 0 14px;
+  margin-right: 15px;
+  background-color:#fff;
+}
+select {
+  border: solid 1px #999;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url(http://ourjs.github.io/static/2015/arrow.png) ;
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-right: 14px;
+}

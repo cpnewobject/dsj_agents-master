@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv=Content-Type content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="Keywords" content="大世界平台">
+    <meta name="Description" content="大世界平台">
+    <title>大世界平台</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/list.css"/>
+    <script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+</head>
+<body>
+<div id="view-menu">
+    <span class="menu-left" href="/index/index">
+        <i class="iconfont">&#xe609;</i><span>大世界</span>
+    </span>
+    <div class="menu-right">
+        <i class="iconfont">&#xe634;</i>
+        <span>{$_SESSION['admin_name']}</span>
+        <i class="iconfont icon_rt">&#xe68b;</i>
+        <ul class="men-out">
+            <li><a href="javascript:;" class="set_pwd">修改密码</a></li>
+            <li><a href="/login/logout">注销</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".set_pwd").on('click', function (event) {
+        layer.open({
+            type: 2,
+            title: '修改密码',
+            closeBtn: 1,
+            shadeClose: true,
+            shade: 0.8,
+            area: ['520px', '430px'],
+            content: "{:U('Index/set_pwd')}",
+        });
+    });
+</script>

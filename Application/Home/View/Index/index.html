@@ -1,0 +1,167 @@
+	<include file="Public:header" />
+	<include file="Public:view_sidebar" />
+	<div id="page" >
+		<div id="main" class="dclear_fix c-grey">
+			<h3 class="crumbs">
+				<a>首页</a>
+				<div class="one-right">
+							<span>客服电话：4001234567</span>
+							<button>在线客服</button>
+				</div>
+			</h3>
+			<div class="person">
+						<dl>
+							<dt>
+								<p><i>我的代理商级别：<span>省部级经理</span></i><i>上级代理商名称：<span>xx</span></i><i>上级代理商编号：<span>xx</span></i></p>
+							</dt>
+							<dt class="dt-right">
+								<p><i>充值账户余额：<span>8888.00</span></i><i>提成返回账户余额：<span>8888.00</span></i></p>
+							</dt>
+						</dl>
+						
+			</div>
+			<div class="main-index">
+					<div class="index-right">
+						<div class="container">
+						<div class="row">
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+							<div class="col-xs-2 service">
+								<i class="iconfont">&#xe613;</i>
+								<div class="text">
+									<h1>￥0.00</h1>
+								<p>团队充值总额</p>
+								</div>
+							</div>
+						</div>
+					</div><!--container end-->
+					
+						<div class="container index-adver">
+							<h4>
+						<span>广告</span>
+						<a href="/Service/analysis">更多信息</a>
+							</h4>
+					<ul class="adver">
+							<li class="three-fir">广告位</li>
+							<li>广告位</li>
+							<li>广告位</li>
+					</ul>
+						</div>
+					
+					</div>
+					<div class="index-left">
+						<h5>公告</h5>
+						<ul>
+							<li><span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><span class="right">[2017-06-08]</span></li>
+							<li><span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><span class="right">[2017-06-08]</span></li>
+							<li><span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><span class="right">[2017-06-08]</span></li>
+							<li><span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><span class="right">[2017-06-08]</span></li>
+							<li><span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><span class="right">[2017-06-08]</span></li>
+						</ul>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+
+window.onload=function(){
+	var ltime ={$admin_info['login_time']};
+	if(ltime==0){
+		layer.open({
+		    type: 2,
+		    title: '修改密码',
+		    closeBtn: 1,
+		    shadeClose: true,
+		    shade: 0.8,
+		    area: ['420px', '35%'],
+		    content: "/Index/set_pwd",
+		    cancel: function(data){
+		    	$.ajax("/Index/set_time",function(data){
+		    		if(data.code==0){
+		    			parent.location.reload();
+		    		}
+		    	});
+		    }
+		});
+	}
+}
+</script>

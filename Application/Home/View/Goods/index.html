@@ -1,0 +1,140 @@
+	<include file="Public:header" />
+	<include file="Public:view_sidebar" />
+	<div id="page" >
+		<div id="main" class="dclear_fix c-white">
+			<h3 class="crumbs">
+				<a>商品页</a>
+				<div class="one-right">
+							<span>客服电话：4001234567</span>
+							<button>在线客服</button>
+				</div>
+			</h3>
+
+			<div class="right-two">
+				<form action="/Goods/index" method="post" id="goods_form">
+				<label for="producttype">类别</label>
+				<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><if condition="$catergory_name">{$catergory_name}<else/>全部</if>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<?php foreach($categorylist as $k=>$v): ?>
+						<li>
+							<a class="catergroy_id" data="<?=$v['cat_id'];?>" dataname="<?=$v['cat_name'];?>"><?=$v['cat_name'];?></a>
+						</li>
+						<?php endforeach;?>
+						<input type="hidden" id="catergory" name="catergory"  value="">
+						<input type="hidden" id="catergory_name" name="catergory_name" value="">
+					</ul>
+				</div>
+				<label for="productname">产品名称</label>
+				<input type="text" id="productname" name="goods_name" value=<?=$goods_name?> >
+				<label for="productnub">产品编码</label>
+				<input type="text" id="productnub" name="goods_sn" value=<?=$goods_sn?> >
+				<button type="submit" class="btn btn-default" onclick="submit()">查询</button>
+			</form>
+
+			</div><!--right-two end-->
+
+					<div class="right-four">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>货号</th>
+									<th>名称</th>
+									<th>缩略图</th>
+									<th>规格</th>
+									<th>库存</th>
+									<th>零售价</th>
+									<th>折扣率</th>
+									<th>折扣价格</th>
+									<th>折扣金额</th>
+									<th>pv值</th>
+									<th>计入运费件数</th>
+									<th>数量</th>
+									<th>加入购物车</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach($list as $k=>$v):?>
+								<tr >
+									<td><?=$v['goods_sn'];?></td>
+									<td><?=$v['goods_name'];?></td>
+									<td><img src="<?=$v['goods_thumb'];?>"/></td>
+									<td><?=$v['goods_weight'];?></td>
+									<td><?=$v['goods_number'];?></td>
+									<td><?=$v['shop_price'];?></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td><?=$v['pv_price'];?></td>
+									<td></td>
+									<td class="totalCount"><button class="btn btn-sm add-num">+</button><input  type="text" class="amount" name="total_count" placeholder="1" value="1"/><button class="btn btn-sm del-num">-</button></td>
+									<td><button class="addcar" data_goods_id="<?=$v['goods_id']?>" >加入购物车</button></td>
+								</tr>
+								<?php endforeach;?>
+
+							</tbody>
+						</table>
+					</div><!--right-four end-->
+			        <div class="page_bt">{$page}</div>
+
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+				/*购物车数量加减*/
+				$(".right-four table .add-num").click(function(){
+					var a=$(this).siblings("input").val();
+					a++;
+					$(this).siblings("input").val(a)
+				})
+				$(".right-four table .del-num").click(function(){
+					var a=$(this).siblings("input").val();
+					if(a>0){
+						a--;
+					}else{
+						a==0;
+					}
+					$(this).siblings("input").val(a)
+				})
+				/*购物车数量加减*/
+				/*下拉菜单*/
+				$(".right-two .btn-group ul li").click(function(){
+					$(this).parent("ul").siblings(".btn").html($(this).html());
+				})
+				/*下拉菜单*/
+
+			})
+
+	$(".catergroy_id").click(function () {
+        var catergoryid = $(this).attr('data');
+        var catergoryname = $(this).attr('dataname');
+        $('#catergory').val(catergoryid);
+        $('#catergory_name').val(catergoryname);
+    });
+
+	$(".addcar").click(function () {
+	    var data_goods_id = $(this).attr('data_goods_id');
+        var data_total_count = $(this).parents('td').siblings('.totalCount').find('input').val();
+        $.ajax({
+            type: "POST",
+            url:  "{:U('Cart/addCount')}",
+            data: "goods_id="+data_goods_id+'&'+"count="+data_total_count,
+            success: function(data){
+                if(data.code == 1){
+                    alert(data.message);
+                    //正常
+				}else{
+                    alert(data.message);
+                    //出错
+				}
+            }
+    })
+
+
+});
+</script>

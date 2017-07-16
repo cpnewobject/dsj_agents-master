@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv=Content-Type content="text/html" charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	    <meta name="Keywords" content="大世界平台">
+	    <meta name="Description" content="大世界平台">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/style.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/list.css" />
+		<script src="__PUBLIC__/js/lib/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+		
+	</head>
+	<body>
+		<div class="l-main">
+			<div class="coont">
+			<div class="logo">
+				<img src="__PUBLIC__/img/logo.jpg" />
+			</div>
+			<div class="login">
+				<div class="log-f">
+					<span class="clicked">用户登入</span>
+				</div><!--log-f end-->
+				<div class="log-main">
+					<div class="log-input">
+						<i class="iconfont">&#xe657;</i>
+						<input type="text" name="username" placeholder="请输入你的用户名" />	
+					</div>
+					<div class="log-input">
+						<i class="iconfont">&#xe66e;</i>
+						<input type="password" name="password" placeholder="请输入你的密码" />	
+					</div>
+					<div class="log-input">
+						<input type="text" name="yzm" placeholder="验证码输入" class="yzm" />	
+						<img src="__PUBLIC__/img/2012100516070577.png" class="pic-yzm" />
+					</div>
+					<div class="reg">
+							<a class="forget-pass">忘记密码</a><a class="reg-right">免费注册</a>
+					</div>
+						<button>登&nbsp;入</button>
+				</div><!--log-main end-->
+				
+				
+			</div>
+			</div><!--coont end-->
+		</div><!--main end-->
+		<div class="l-footer">
+			<div class="coont coont-f">
+				<div class="copyright">
+				<ul>
+					<li>
+						版权所有：chongmingtaihe.com 
+					</li>
+					<li>
+						电话：13xxxxxxxxx 传真：xxxxxxxxxx
+					</li>
+					<li>
+						地址：上海誉胜商务服务有限公司 沪ICP备10206863号-13 地址：上海浦东新区张杨路838号
+					</li>
+					<li>
+						备案号：桂ICP备14007998号-1 | CopyRight©2014-2018 Inc.All Right Reserved htmleaf.com jQuery之家
+					</li>
+				</ul>
+				</div>
+				<div class="weixin">
+					<div><img src="__PUBLIC__/img/20170522114136198.png" /> </div>
+				</div>
+			</div><!--coont end-->
+		</div><!--footer end-->
+		<script>
+			$(document).ready(function(){
+				var atr=["__PUBLIC__/img/2012100516070577.png","__PUBLIC__/img/two.gif"];
+				$(".pic-yzm").click(function(){
+					var id = Math.ceil(Math.random()*atr.length)-1;
+					console.log(id);
+					$(this).attr("src",atr[id]);
+				})
+				/*弹出层*/
+				$(".log-main .reg .reg-right").click(function(){
+					layer.open({
+					type: 2,
+					title: '账号申请',
+					maxmin: false,
+					shadeClose: true, //点击遮罩关闭层
+					area : ['550px' , '480px'],
+					content: 'regist.html'/*url*/
+					});
+				})
+				$(".log-main .reg .forget-pass").click(function(){
+					layer.open({
+					type: 2,
+					title: '忘记密码',
+					maxmin: false,
+					shadeClose: true, //点击遮罩关闭层
+					area : ['550px' , '480px'],
+					content: 'forget.html'/*url*/
+					});
+				})
+				/*弹出层*/
+		})
+		</script>
+	</body>
+</html>

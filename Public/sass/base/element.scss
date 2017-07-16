@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+html {
+  font-size: 14px;
+}
+
+/*CSS Reset*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+header,
+hgroup,
+nav,
+section,
+article,
+aside,
+footer,
+figure,
+figcaption,
+menu,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', 'Luxi Sans', 'DejaVu Sans', Tahoma, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei';
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  color: $txt-default;
+  background-color: $stable-bg;
+  // -webkit-user-select: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  background: #EBEEF2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th {
+  text-align: left;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  outline: 0;
+}
+
+button {
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+}
+
+a {
+  -webkit-touch-callout: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+:focus {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+em, i {
+  font-style: normal;
+}
+
+//页面按钮
+.btn {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-gray {
+  background: #efefef !important;
+  color: #999 !important;
+}
+
+.btn-blue {
+  background: $blue;
+  color: #fff;
+}
+
+.btn-blue {
+  background: $blue;
+  color: #fff;
+}
+
+.color_blue {
+  color: $blue;
+}
+
+.btn-orange {
+  background: $orange;
+  color: #fff;
+}
+
+//面包屑导航
+.crumbs {
+  font-size: 18px;
+  color: #666;
+  span {
+    &:last-child {
+      color: #000;
+    }
+    &:after {
+      content: '/';
+      padding: 0 10px;
+    }
+    &:last-child:after {
+      content: '' !important;
+    }
+  }
+}
+
+//checkbox和radio
+.z-radio, .z-check {
+  width: 0 !important;
+  height: 0 !important;
+  visibility: hidden;
+}
+
+.check-box-wrap {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #999;
+  cursor: pointer;
+  position: relative;
+  &.checked {
+    background: $blue;
+  }
+  &.checked:before {
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: -3px;
+    left: 3px;
+    bottom: 0;
+    right: 0;
+    border-right: 2px solid #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-animation: checkboxcheck 125ms 50ms cubic-bezier(.1, 0, .1, 1) forwards;
+    animation: checkboxcheck 125ms 50ms cubic-bezier(.1, 0, .1, 1) forwards;
+  }
+}
+
+label.check-box-wrap {
+  margin-right: 3px;
+}
+
+input[type=radio]:checked + label > span.check-box-wrap, input[type=checkbox]:checked + label > span.check-box-wrap, input[type=checkbox]:checked + label.check-box-wrap {
+  background: $blue;
+  position: relative;
+  border: 1px solid $blue;
+  &:before {
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: -3px;
+    left: 3px;
+    bottom: 0;
+    right: 0;
+    border-right: 2px solid #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-animation: checkboxcheck 125ms 50ms cubic-bezier(.1, 0, .1, 1) forwards;
+    animation: checkboxcheck 125ms 50ms cubic-bezier(.1, 0, .1, 1) forwards;
+  }
+}
+
+//容器
+#page {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  padding-left: 160px;
+  background: #EBEEF2;
+}
+
+#main {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  min-width: 1600px;
+}
+
+.font-red {
+  color: red !important;
+}
+
+.font-green {
+  color: green!important;
+}
+
+.font-black {
+  color: #333!important;
+}

@@ -1,0 +1,84 @@
+	<include file="Public:header" />
+	<include file="Public:view_sidebar" />
+	<div id="page" >
+		<div id="main" class="dclear_fix c-white">
+			<h3 class="crumbs">
+				<a>充值</a>
+				<div class="one-right">
+							<span>客服电话：4001234567</span>
+							<button>在线客服</button>
+				</div>
+			</h3>
+			<div class="main-account">
+				<div class="account container">
+					<div class="row">
+						<label class="col-xs-3">充值账号：</label>
+						<input class="col-xs-5" type="text" placeholder="请输入你要充值的账号"/>
+					</div>
+					<div class="row">
+						<label class="col-xs-3">充值金额：</label>
+						<input class="col-xs-5" type="text" placeholder=""/>
+						<span class="col-xs-4">备注：最低充值金额xxxx。</span>
+					</div>
+					<div class="row">
+						<label class="col-xs-3">充值方式：</label>
+						<div class="col-xs-5">
+							<button class="btn btn-sm selected e-bank">网银支付</button>
+							<button class="btn btn-sm wecat">微信支付</button>
+							<button class="btn btn-sm alipay">支付宝支付</button>
+						</div>
+					</div>
+					<div class="row large shaomiao">
+						<label class="col-xs-3">扫描支付：</label>
+						<div class="col-xs-5">
+							<img src="__PUBLIC__/img/ewm.png"/>
+						</div>
+					</div>
+					<div class="row ebank">
+						<label class="col-xs-3">银行卡信息：</label>
+						<div class="col-xs-5">
+							<ul>
+								<li class="selected">工商银行</li>
+								<li>农业银行</li>
+								<li>招商银行</li>
+								<li>建设银行</li>
+								<li>中国银行</li>
+								<li>广发银行</li>
+								<li>交通银行</li>
+								<li>浦发银行</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row ebank">
+						<button class="sure">立即支付</button>
+					</div>
+				</div>
+			</div><!--main-account end-->
+		</div>
+	</div>
+</body>
+</html>
+		<script>
+			$(document).ready(function(){
+				$(".shaomiao").css("display","none");
+				$(".wecat").click(function(){
+					$(this).addClass("selected").siblings("button").removeClass("selected");
+					$(".shaomiao").css("display","block");
+					$(".ebank").css("display","none");
+				})
+				$(".alipay").click(function(){
+					$(this).addClass("selected").siblings("button").removeClass("selected");
+					$(".shaomiao").css("display","block");
+					$(".ebank").css("display","none");
+				})
+				$(".e-bank").click(function(){
+					$(this).addClass("selected").siblings("button").removeClass("selected");
+					$(".shaomiao").css("display","none");
+					$(".ebank").css("display","block");
+				})
+				$(".main-account ul li").click(function(){
+					$(this).addClass("selected").siblings("li").removeClass("selected")
+				})
+			})
+			
+		</script>

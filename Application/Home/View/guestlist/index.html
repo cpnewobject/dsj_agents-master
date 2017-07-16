@@ -1,0 +1,80 @@
+	<include file="Public:header" />
+	<include file="Public:view_sidebar" />
+	<div id="page" >
+		<div id="main" class="dclear_fix c-white">
+			<h3 class="crumbs">
+				<a>客户列表</a>
+				<div class="one-right">
+							<span>客服电话：4001234567</span>
+							<button>在线客服</button>
+				</div>
+			</h3>
+			<div class="right-glist">
+			<form action="/Guestlist/index" method="post" id="user_form">
+						<label for="guest">客户姓名：</label>
+						<input type="text" id="consignee" name="consignee" <if condition="$consignee">value="{$consignee}"</if>/>
+						<label for="phone">客户手机：</label>
+						<input type="text" id="mobile" name="mobile" <if condition="$mobile">value="{$mobile}"</if>/>
+						<button class="btn btn-xs">查询</button>
+			</form>
+						<a href="#" class="add-guest">+添加客户</a>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>客户姓名</th>
+									<th>客户手机号</th>
+									<th>客户地址</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<volist name="list" id="vo">
+									<tr>
+										<td >{$vo.consignee} </td>
+										<td >{$vo.mobile} </td>
+										<td >{$vo.province_name}{$vo.city_name}{$vo.district_name}{$vo.address} </td>
+										<td ><a href="#" class="look">修改</a><a href="#" class="right del">移除</a></td>
+									</tr>
+								</volist>
+							</tbody>
+						</table>
+					</div><!--right-glist-->
+		</div>
+	</div>
+</body>
+</html>
+		<script>
+			$(document).ready(function(){
+				/*下拉菜单*/
+				$(".dropdown-menu li").click(function(){
+					$(".button-choose").html($(this).html())
+				})
+				/*下拉菜单*/
+				/*弹出层*/
+				$(".add-guest").click(function(){
+					layer.open({
+					type: 2,
+					title: '添加客户',
+					maxmin: false,
+					shadeClose: true, //点击遮罩关闭层
+					area : ['1100px' , '600px'],
+					content: '/Guestlist/guestadd'/*url*/
+					});
+				})
+				/*弹出层*/
+				/*查看删除*/
+				$(".right-glist table .look").click(function(){
+					layer.open({
+					type: 2,
+					title: '修改客户信息',
+					maxmin: false,
+					shadeClose: true, //点击遮罩关闭层
+					area : ['1100px' , '600px'],
+					content: '/Guestlist/guestadd'/*url*/
+					});
+				})
+				$(".right-glist table .del").click(function(){
+					$(this).parent("td").parent("tr").remove();
+				})
+			})
+		</script>
